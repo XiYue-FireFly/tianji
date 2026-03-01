@@ -325,15 +325,15 @@ public class OrderDetailServiceImpl extends ServiceImpl<OrderDetailMapper, Order
     @Override
     public CoursePurchaseInfoDTO getPurchaseInfoOfCourse(Long courseId) {
         // 1.统计报名人数
-        Integer enrollNum = lambdaQuery()
+        Integer enrollNum = Math.toIntExact(lambdaQuery()
                 .eq(OrderDetail::getCourseId, courseId)
                 .in(OrderDetail::getStatus, PAYED.getValue(), FINISHED.getValue(), ENROLLED.getValue())
-                .count();
+                .count());
         // 2.统计退款人数
-        Integer refundNum = lambdaQuery()
+        Integer refundNum = Math.toIntExact(lambdaQuery()
                 .eq(OrderDetail::getCourseId, courseId)
                 .eq(OrderDetail::getStatus, REFUNDED.getValue())
-                .count();
+                .count());
         // 3.统计销售额
         int realPayAmount = baseMapper.countRealPayAmountByCourseId(courseId);
 

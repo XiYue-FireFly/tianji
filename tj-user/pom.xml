@@ -65,6 +65,12 @@
             <artifactId>tj-message-api</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <!--common-->
+        <dependency>
+            <groupId>com.tianji</groupId>
+            <artifactId>tj-common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <!--loadbalancer-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
