@@ -31,13 +31,13 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IR
 
     @Override
     public boolean exists(Long roleId) {
-        Integer count = lambdaQuery().eq(Role::getId, roleId).count();
+        Integer count = Math.toIntExact(lambdaQuery().eq(Role::getId, roleId).count());
         return count > 0;
     }
 
     @Override
     public boolean exists(List<Long> roleIds) {
-        Integer count = lambdaQuery().in(Role::getId, roleIds).count();
+        Integer count = Math.toIntExact(lambdaQuery().in(Role::getId, roleIds).count());
         return count != roleIds.size();
     }
 
