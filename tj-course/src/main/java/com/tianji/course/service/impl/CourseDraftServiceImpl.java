@@ -617,7 +617,7 @@ public class CourseDraftServiceImpl extends ServiceImpl<CourseDraftMapper, Cours
                         .eq(CourseDraft::getName, name)
                         .last(id != null, " and id !=" + id);
         //2.统计同名课程数量
-        Integer num = baseMapper.selectCount(queryWrapper);
+        Integer num = Math.toIntExact(baseMapper.selectCount(queryWrapper));
         //3.返回同名课程VO
         return new NameExistVO(num > 0);
     }

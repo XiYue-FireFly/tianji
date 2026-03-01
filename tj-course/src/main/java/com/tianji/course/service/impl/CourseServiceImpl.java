@@ -197,7 +197,7 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
                         .eq(Course::getName, name)
                         .last(id != null, " and id !=" + id);
         //2.统计数量
-        Integer num = baseMapper.selectCount(queryWrapper);
+        Integer num = Math.toIntExact(baseMapper.selectCount(queryWrapper));
         if (num > 0) {
             return NameExistVO.EXISTED;
         }
@@ -419,7 +419,7 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
                         .or().eq(Course::getSecondCateId, categoryId)
                         .or().eq(Course::getThirdCateId, categoryId);
         //2.统计课程数量
-        return baseMapper.selectCount(queryWrapper);
+        return Math.toIntExact(baseMapper.selectCount(queryWrapper));
     }
 
     @Override

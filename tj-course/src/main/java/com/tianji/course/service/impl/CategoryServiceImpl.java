@@ -390,7 +390,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         LambdaQueryWrapper<Category> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(Category::getLevel, 3)
                 .in(Category::getId, thirdCateIdList);
-        int thirdCateNum = baseMapper.selectCount(queryWrapper);
+        int thirdCateNum = Math.toIntExact(baseMapper.selectCount(queryWrapper));
         if (!NumberUtils.equals(thirdCateNum, thirdCateIdList.size())) {
             throw new BizIllegalException(ErrorInfo.Msg.REQUEST_PARAM_ILLEGAL);
         }

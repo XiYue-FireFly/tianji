@@ -364,7 +364,7 @@ public class CourseCatalogueDraftServiceImpl extends ServiceImpl<CourseCatalogue
         queryWrapper.eq(CourseCatalogueDraft::getCourseId, courseId)
                 .in(CourseCatalogueDraft::getType,
                         Arrays.asList(CourseConstants.CataType.SECTION, CourseConstants.CataType.PRATICE));
-        return count(queryWrapper);
+        return Math.toIntExact(count(queryWrapper));
     }
 
     @Override
