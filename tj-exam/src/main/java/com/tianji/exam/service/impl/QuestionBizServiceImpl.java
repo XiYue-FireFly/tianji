@@ -30,9 +30,9 @@ public class QuestionBizServiceImpl extends ServiceImpl<QuestionBizMapper, Quest
 
     @Override
     public int countUsedTimes(Long questionId) {
-        Integer count = lambdaQuery()
+        Integer count = Math.toIntExact(lambdaQuery()
                 .eq(QuestionBiz::getQuestionId, questionId)
-                .count();
+                .count());
         return count == null ? 0 : count;
     }
 
