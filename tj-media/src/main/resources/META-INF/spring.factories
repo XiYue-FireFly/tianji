@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.tianji.media.config.AliConfig,\
+  com.tianji.media.config.TencentConfig

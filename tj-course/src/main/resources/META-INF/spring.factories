@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.tianji.course.config.ThreadPoolConfig,\
+  com.tianji.course.properties.CourseProperties
